@@ -21,6 +21,7 @@ export class AuthService {
         localStorage.setItem('userId', res.data.userId)
         localStorage.setItem('userName', res.data.fullname)
         localStorage.setItem('token', res.data.token)
+        localStorage.setItem('role', res.data.role)
       })
     )
   }
@@ -29,5 +30,6 @@ export class AuthService {
     localStorage.removeItem('token')
     localStorage.removeItem('userId')
     localStorage.removeItem('userName')
+    localStorage.removeItem('role')
   }
 }
