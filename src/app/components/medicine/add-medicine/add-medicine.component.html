@@ -1,19 +1,25 @@
-<h3 class="text-center">Add New Medicine</h3>
-<form #form="ngForm" (ngSubmit)="onSubmit()" >
-    <div class="mb-3">
-        <label for="firstName">Task Detail</label>
-        <input type="text" required class="form-control" name="name" [(ngModel)]="name" />
+<div class="container-fluid section">
+    <div class="row text-center">
+        <div class="offset-md-3 col-md-6 offset-lg-4 col-lg-4">
+            <h1 class="border-bottom fw-bold mb-4 mt-5">Add New Medicine</h1>
+            <form #form="ngForm" (ngSubmit)="onSubmit()" >
+                <div class="mb-3">
+                    <label for="name">Medicine Name</label>
+                    <input type="text" required class="form-control" name="name" [(ngModel)]="name" />
+                </div>
+                <div class="mb-3">
+                    <label for="weight">Weight</label>
+                    <input type="number" required class="form-control" name="weight" [(ngModel)]="weight" />
+                </div>
+                <div class="mb-3">
+                    <label for="code">Code</label>
+                    <input type="text" required class="form-control" name="code" [(ngModel)]="code" />
+                </div>
+                <div class="text-center">
+                    <p *ngIf="loading$ | async" class="bg-dark text-white">Loading...</p>
+                    <button type="submit" class="btn btn-success" [disabled]="form.invalid">Add</button>
+                </div>
+            </form>
+        </div>
     </div>
-    <div class="mb-3">
-        <label for="weight">Weight</label>
-        <input type="number" required class="form-control" name="weight" [(ngModel)]="weight" />
-    </div>
-    <div class="mb-3">
-        <label for="code">Code</label>
-        <input type="text" required class="form-control" name="code" [(ngModel)]="code" />
-    </div>
-    <div class="text-center">
-        <p *ngIf="loading$ | async" class="bg-dark text-white">Loading...</p>
-        <button type="submit" class="btn btn-success" [disabled]="form.invalid">Add</button>
-    </div>
-</form>
+</div>
