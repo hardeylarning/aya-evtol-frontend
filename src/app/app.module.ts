@@ -13,6 +13,7 @@ import { RegisterEvtolComponent } from './components/evtol/register-evtol/regist
 import { LoadEvtolComponent } from './components/evtol/load-evtol/load-evtol.component';
 import { EvtolComponent } from './components/evtol/evtol/evtol.component';
 import { EvtolsComponent } from './components/evtol/evtols/evtols.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { EvtolsComponent } from './components/evtol/evtols/evtols.component';
     RegisterEvtolComponent,
     LoadEvtolComponent,
     EvtolComponent,
-    EvtolsComponent
+    EvtolsComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
