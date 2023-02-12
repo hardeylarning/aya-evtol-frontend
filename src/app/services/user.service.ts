@@ -13,7 +13,7 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   getUser(id: string) {
-    return this.http.get<User>(this.BASE_URL+'/'+id)
+    return this.http.get<any>(this.BASE_URL+'/'+id)
   }
 
   // getUserByEmail(email: string) {
@@ -25,7 +25,7 @@ export class UserService {
   // }
 
   getUsers() {
-    return this.http.get<User[]>(this.BASE_URL)
+    return this.http.get<any>(this.BASE_URL)
   }
 
   addUser(user: User) {

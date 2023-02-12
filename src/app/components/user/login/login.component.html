@@ -1,1 +1,51 @@
-<p>login works!</p>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class=" rounded-oval p-5" style="margin-top: 150px;">
+                <div class="p-5">
+                    <h1 class="border-bottom text-center fw-bold mb-4">Login</h1>
+                    <form #loginForm="ngForm">
+                      <div class="mb-2">
+                        <input
+                        required
+                          class="form-control"
+                          placeholder="Enter a valid Email"
+                          type="email"
+                          name="email"
+                          [(ngModel)]="email"
+                        />
+            
+                      </div>
+                      <div class="mb-2">
+                        <input
+                        required
+                          class="form-control"
+                          placeholder="Enter a valid password"
+                          type="password"
+                          name="password"
+                          [(ngModel)]="password"
+                        />
+                      </div>
+            
+                      <div class="text-center">
+                        <button *ngIf="loading$ | async" type="button" [disabled]="true" class="btn btn-primary">loading...</button>
+                        <button *ngIf="!(loading$ | async)" [disabled]="loginForm.invalid" (click)="login()" type="submit" class="btn btn-primary">Sign in</button>
+                        <a routerLink="/add-user" class="btn btn-success ms-2">Register</a>
+                      </div>
+            
+                      <div class="text-center mt-2">
+                        <a routerLink="/reset-password" class="btn btn-info">forgot password?</a>
+                      </div>
+                  
+                      
+                    </form>
+                </div>
+               
+              </div>
+        </div>
+        <div class="col-md section">
+
+        </div>
+    </div>
+</div>
