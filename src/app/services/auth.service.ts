@@ -31,5 +31,6 @@ export class AuthService {
     localStorage.removeItem('userId')
     localStorage.removeItem('userName')
     localStorage.removeItem('role')
+    
   }
 }

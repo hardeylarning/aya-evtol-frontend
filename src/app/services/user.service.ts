@@ -46,7 +46,15 @@ export class UserService {
        { "No-Auth": "True"}
       )
     }
-    return this.http.post(`${this.BASE_URL}/login`, { email, password }, requestHeader)
+    return this.http.post<any>(`${this.BASE_URL}/login`, { email, password }, requestHeader)
+  }
+
+  logout() {
+    localStorage.removeItem('token')
+    localStorage.removeItem('userId')
+    localStorage.removeItem('userName')
+    localStorage.removeItem('role')
+    
   }
 
   isLoggedIn() {

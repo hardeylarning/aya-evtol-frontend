@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
-import { AuthService } from 'src/app/services/auth.service';
+import { UserService } from 'src/app/services/user.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
   email:string = ''
   password:string = ''
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
 
@@ -33,24 +33,30 @@ export class LoginComponent implements OnInit {
 
   login() {
     this.loading$.next(true)
-    this.authService.login(this.email, this.password).subscribe({
+    this.userService.login(this.email, this.password).subscribe({
       next: data => {
         if (data.status === 'success') {
           this.loading$.next(false)
-
+          localStorage.setItem('userId', data.data.userId)
+          localStorage.setItem('userName', data.data.fullname)
+          localStorage.setItem('token', data.data.token)
+          localStorage.setItem('role', data.data.role)
           this.router.navigate(['/medicines'])
         }
         else {
+          // console.log('Data:', data);
           this.loading$.next(false)
           this.tinyAlert(data.message)
         }
       },
       error: err => {
+        // console.log('Data:', err);
         this.loading$.next(false)
-        this.tinyAlert("Network Error! Kindly check your network issue")
+        this.tinyAlert("Network Error! Kindly check your network")
       }
 
-  })
+    })
 }
+
 
 }

@@ -13,7 +13,11 @@ export class NavbarComponent implements OnInit {
 
   userProfile$ = new BehaviorSubject<string>('');
 
-  constructor(private router: Router, private authService: AuthService, private userService: UserService) { }
+  constructor(
+    private router: Router, 
+    private authService: AuthService, 
+    private userService: UserService
+    ) { }
 
   ngOnInit(): void {
       this.userProfile$.next(localStorage.getItem('userName') || '')
@@ -21,10 +25,11 @@ export class NavbarComponent implements OnInit {
 
   logout() {
     this.authService.logout()
-    this.router.navigate(['/'])
+    this.router.navigate(['/login'])
   }
 
   isLoggedIn() {
+    this.userProfile$.next(localStorage.getItem('userName') || '')
     return this.userService.userLoggedIn()
   }
 
