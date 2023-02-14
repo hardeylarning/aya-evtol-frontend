@@ -19,7 +19,7 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: 'add-medicine/:id',
+    path: 'add-medicine',
     component: AddMedicineComponent,
     canActivate: [AuthGuard]
   },

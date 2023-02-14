@@ -1,1 +1,30 @@
-<p>medicines works!</p>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md">
+            <table class="table table-bordered caption-top">
+              <caption>List of medicines</caption>
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Weight</th>
+                  <th scope="col">Code</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody class="table-group-divider">
+                <tr *ngFor="let medicine of medicines; let i = index">
+                  <th name="'medicine'" scope="row"> {{ i + 1 }} </th>
+                  <td >{{ medicine.name }}</td>
+                  <td>{{ medicine.weight }}</td>
+                  <td>{{ medicine.code }}</td>
+                  <td class="d-flex justify-content-between">
+                    <a [routerLink]="['/edit-medicine', medicine._id]"><i class="bi-pencil-square text-primary"></i></a>
+                    <span (click)="onDelete(medicine._id)"><i class="bi-trash text-danger"></i></span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+    </div>
+</div>

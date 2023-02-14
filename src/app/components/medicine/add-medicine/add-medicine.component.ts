@@ -12,8 +12,6 @@ import Swal from 'sweetalert2';
   styleUrls: ['./add-medicine.component.scss']
 })
 export class AddMedicineComponent implements OnInit {
-
-  isLoading: Boolean = false
   readonly loading$ = new BehaviorSubject<boolean>(false);
 
   constructor(private userService: UserService, 
@@ -36,26 +34,24 @@ export class AddMedicineComponent implements OnInit {
 
   onSubmit() {
     const userId = this.userService.userLoggedIn() || ''
-
-    const medicine: Medicine = new Medicine(null, this.name, userId, this.weight, this.code, null)
-
+    const medicine = new Medicine('', this.name, userId, this.weight, this.code, '')
+    this.loading$.next(true)
     this.medicineService.addMedicine(medicine).subscribe({
       next: (data) =>{
-      this.loading$.next(true)
       if(data.status === 'success'){
         this.loading$.next(false)
         this.successNotification("Medicine has been added successfully")
         this.router.navigateByUrl('/medicines')
       }
       else {
-        this.isLoading = false
+        this.loading$.next(false)
         this.tinyAlert(data.message)
       }
       // window.location.reload();
       // this.router.navigateByUrl('/tasks')
   }, 
   error: (err) => {
-    this.isLoading = false
+    this.loading$.next(false)
     console.log(err)
     this.tinyAlert("Network Error!")
   }

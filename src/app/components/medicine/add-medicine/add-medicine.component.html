@@ -17,7 +17,7 @@
                 </div>
                 <div class="text-center">
                     <p *ngIf="loading$ | async" class="bg-dark text-white">Loading...</p>
-                    <button type="submit" class="btn btn-success" [disabled]="form.invalid">Add</button>
+                    <button type="submit" *ngIf="!(loading$ | async)" class="btn btn-success" [disabled]="form.invalid">Add</button>
                 </div>
             </form>
         </div>
