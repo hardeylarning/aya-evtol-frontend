@@ -40,6 +40,25 @@ export class MedicinesComponent implements OnInit {
 
 
   onDelete(id: string) {
+    Swal.fire({
+      title: 'Do you want to delete this medicine?',
+      // showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: 'Delete',
+      // denyButtonText: `Don't save`,
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        this.delete(id)
+      } 
+      else {
+        Swal.fire('Delete Action','Deletion action has been canceled', 'info')
+      }
+    })
+   
+  }
+
+  delete(id: string) {
     this.medicineService.deleteMedicine(id).subscribe({
       next: data => {
         if(data.status === 'success') {

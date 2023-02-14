@@ -7,7 +7,7 @@ import { Medicine } from '../model/medicine';
 })
 export class MedicineService {
   private BASE_URL = 'http://localhost:5000/api/v1/medicines'
-  private BASE_URL_ = 'https://tms-api-20kv.onrender.com/api/v1/tasks'
+  private BASE_URL_ = 'https://tms-api-20kv.onrender.com/api/v1/medicines'
 
   constructor(private http: HttpClient) { }
 
