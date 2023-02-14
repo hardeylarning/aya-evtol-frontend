@@ -1,1 +1,47 @@
-<p>register-evtol works!</p>
+<div class="container-fluid section">
+    <div class="row text-center">
+        <div class="offset-md-3 col-md-6 offset-lg-4 col-lg-4">
+            <h1 class="border-bottom fw-bold mb-4 mt-5">Register Evtol</h1>
+            <form #form="ngForm" (ngSubmit)="onSubmit()" >
+                <div class="mb-3">
+                    <label for="status">Model</label>
+                    <!-- ["Lightweight", "Middleweight", "Cruiseweight", "Heavyweight"] -->
+                    <select (change)="handleModelChange($event)"
+                    name="model"
+                    class="form-select" id="model">
+                    <option selected [value]="'Lightweight'">Lightweight</option>
+                    <option [value]="'Middleweight'">Middleweight</option>
+                    <option [value]="'Cruiseweight'">Cruiseweight</option>
+                    <option [value]="'Heavyweight'">Heavyweight</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="status">State</label>
+                    <!-- ["IDLE", "LOADING", "LOADED","DELIVERING", "DELIVERED", "RETURNING"] -->
+                    <select (change)="handleStateChange($event)"
+                    name="state"
+                    class="form-select" id="state">
+                    <option selected [value]="'IDLE'">IDLE</option>
+                    <option [value]="'LOADING'">LOADING</option>
+                    <option [value]="'LOADED'">LOADED</option>
+                    <option [value]="'DELIVERING'">DELIVERING</option>
+                    <option [value]="'DELIVERED'">DELIVERED</option>
+                    <option [value]="'RETURNING'">RETURNING</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="weight">Weight</label>
+                    <input type="number" required class="form-control" name="weight" [(ngModel)]="weight" />
+                </div>
+                <div class="mb-3">
+                    <label for="weight">Battery Capacity</label>
+                    <input type="number" required class="form-control" name="batteryCapacity" [(ngModel)]="batteryCapacity" />
+                </div>
+                <div class="text-center">
+                    <p *ngIf="loading$ | async" class="bg-dark text-white">Loading...</p>
+                    <button type="submit" *ngIf="!(loading$ | async)" class="btn btn-success" [disabled]="form.invalid">Add</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

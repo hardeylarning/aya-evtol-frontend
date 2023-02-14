@@ -2,9 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { Evtol } from 'src/app/model/evtol';
-import { Medicine } from 'src/app/model/medicine';
 import { EvtolService } from 'src/app/services/evtol.service';
-import { MedicineService } from 'src/app/services/medicine.service';
 import { UserService } from 'src/app/services/user.service';
 import Swal from 'sweetalert2';
 
