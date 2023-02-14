@@ -1,7 +1,7 @@
 export class Evtol {
     constructor(
         public _id: string,
-        public serialNumber: string,
+        public serialNumber: number,
         public model: string,
         public weight: number,
         public batteryCapacity: number,
