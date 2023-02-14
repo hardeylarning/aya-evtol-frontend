@@ -20,7 +20,7 @@ export class MedicineService {
   }
 
   getMedicines() {
-    return this.http.get<any>(this.BASE_URL+'/user-tasks/all')
+    return this.http.get<any>(this.BASE_URL)
   }
 
   updateMedicine(id:string, medicine: Medicine) {

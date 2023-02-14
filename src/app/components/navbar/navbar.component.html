@@ -2,15 +2,18 @@
     <div class="container-fluid">
       <a class="navbar-brand" routerLink="/medicines">EVTOL</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class=""><i class="bi-pencil-square text-primary"></i></span>
+        <span class=""><i class="bi-toggle-on text-primary"></i></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <div class="navbar-nav ms-auto mb-2 mb-lg-0">
-            <button *ngIf="!isLoggedIn()" type="button" class="btn btn-primary me-2" routerLink="/">login</button>
+            <button *ngIf="!isLoggedIn()" type="button" class="btn btn-primary me-2" routerLink="/login">login</button>
             <button *ngIf="!isLoggedIn()" type="button" class="btn btn-success" routerLink="/register">register</button>
-            <button *ngIf="isLoggedIn()" type="button" class="btn btn-danger" (click)="logout()">logout</button>
+            <div *ngIf="isLoggedIn()" class="text-white">
+              Welcome, <span class="fw-bold me-3">{{ userProfile$ | async }}</span>
+              <button  type="button" class="btn btn-danger" (click)="logout()">logout</button>
+            </div>
         </div>
       </div>
     </div>
   </nav>
-  <p class="me-5" *ngIf="isLoggedIn()">Welcome, <span class="h5 fw-bold">{{ userProfile$ | async }}</span></p>
+  <p class="me-5" *ngIf="isLoggedIn()"></p>
