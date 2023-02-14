@@ -1,0 +1,18 @@
+<div *ngIf="medicine" class="container mt-5">
+    <h1 class="bg-dark text-white text-center p-4 mb-3">{{ medicine.name }}</h1>
+    <div class="row">
+        <div class="col-md">
+            <img src="{{medicine.imageUrl}}" class="card-img img" alt="" srcset="">
+        </div>
+        <div class="col-md">
+            <p>Name:  <span class="fw-bold">{{ medicine.name }}</span></p>
+            <p>Weight:  <span class="fw-bold">{{ medicine.weight }}</span></p>
+            <p>Code:   <span class="fw-bold">{{ medicine.code }}</span></p>
+            <hr class="p-2"/>
+            <a routerLink="/evtols" class="btn btn-outline-primary">Click here to ship your medication with our EVTOL without any delay</a>
+        </div>
+    </div>
+</div>
+<!-- <div *ngIf="!medicine" class="container text-center" style="margin-top: 100px;">
+    <h1 class="display-2">Your Medicine info will be displayed here</h1>
+</div> -->

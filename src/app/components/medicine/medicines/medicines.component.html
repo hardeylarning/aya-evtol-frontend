@@ -20,6 +20,7 @@
                   <td>{{ medicine.code }}</td>
                   <td class="d-flex justify-content-between">
                     <a [routerLink]="['/edit-medicine', medicine._id]"><i class="bi-pencil-square text-primary"></i></a>
+                    <a [routerLink]="['/medicine', medicine._id]"><i class="bi-view-stacked text-primary"></i></a>
                     <span (click)="onDelete(medicine._id)"><i class="bi-trash text-danger"></i></span>
                   </td>
                 </tr>

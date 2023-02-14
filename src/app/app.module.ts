@@ -17,6 +17,7 @@ import { EvtolComponent } from './components/evtol/evtol/evtol.component';
 import { EvtolsComponent } from './components/evtol/evtols/evtols.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { TokenInterceptor } from './interceptors/token.interceptor';
+import { MedicineComponent } from './components/medicine/medicine/medicine.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { TokenInterceptor } from './interceptors/token.interceptor';
     LoadEvtolComponent,
     EvtolComponent,
     EvtolsComponent,
-    NavbarComponent
+    NavbarComponent,
+    MedicineComponent
   ],
   imports: [
     BrowserModule,
