@@ -27,9 +27,18 @@ export class EvtolsComponent implements OnInit {
  
 
   ngOnInit(): void {
-    this.evtolService.availableEvtol().subscribe({
+    this.evtolService.getEvtols().subscribe({
       next: (res) => {
+        if (res.status == 'success')  {
+          console.log('Res: ', res.data);
         this.evtols = res.data;
+        }
+        else {
+          console.log("Status: ", res.status);
+          this.tinyAlert(res.message)
+          
+        }
+        
       },
       error: (err) => {
         this.tinyAlert('Network Error!')

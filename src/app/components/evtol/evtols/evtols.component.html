@@ -15,13 +15,13 @@
               </thead>
               <tbody class="table-group-divider">
                 <tr *ngFor="let evtol of evtols; let i = index">
-                  <th name="'medicine'" scope="row"> {{ i + 1 }} </th>
+                  <th name="'evtol'" scope="row"> {{ i + 1 }} </th>
                   <td >{{ evtol.model }}</td>
                   <td>{{ evtol.weight }}</td>
                   <td>{{ evtol.state }}</td>
                   <td>{{ evtol.batteryCapacity }}</td>
                   <td class="d-flex justify-content-between">
-                    <a [routerLink]="['/load', evtol._id]"><i class="bi-view-stacked text-primary"></i></a>
+                    <a [routerLink]="['/evtol', evtol._id]"><i class="bi-view-stacked text-primary"></i></a>
                   </td>
                 </tr>
               </tbody>

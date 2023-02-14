@@ -1,1 +1,27 @@
-<p>evtol works!</p>
+<div *ngIf="evtol" class="container mt-5">
+    <div class="row">
+        
+        <div class="col-md">
+            <h1 class="bg-dark text-white text-center p-3 mb-3">Medicine Info</h1>
+            <div class="row">
+                <div class="col-md">
+                    <img src="{{medicine.imageUrl}}" class="rounded img-thumbnail" alt="" srcset="">
+                </div>
+                <div class="col-md">
+                    <p>Name:  <span class="fw-bold">{{ medicine.name }}</span></p>
+                    <p>Weight:  <span class="fw-bold">{{ medicine.weight }}</span></p>
+                    <p>Code:   <span class="fw-bold">{{ medicine.code }}</span></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 border-start">
+            <h1 class="bg-dark text-white text-center p-3 mb-3">Evtol Info</h1>
+            <p>Model:  <span class="fw-bold">{{ evtol.model }}</span></p>
+            <p>Weight:  <span class="fw-bold">{{ evtol.weight }}</span></p>
+            <p>State:   <span class="fw-bold">{{ evtol.state }}</span></p>
+            <p>Battery Capacity:   <span class="fw-bold">{{ evtol.batteryCapacity }}</span></p>
+            <p>Shipping Fee: <span class="badge bg-secondary">$500</span></p>
+            <a routerLink="/evtols" class="btn btn-outline-secondary">Click here to pay</a>  
+        </div>
+    </div>
+</div>

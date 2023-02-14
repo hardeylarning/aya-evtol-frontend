@@ -21,8 +21,9 @@ export class MedicineComponent implements OnInit {
       this.medicineService.getMedicine(id).subscribe({
         next: data => {
           if (data.status === 'success') {
-            sessionStorage.setItem('medId', id)
             this.medicine = data.data
+            sessionStorage.setItem('med', JSON.stringify(this.medicine))
+            
           }
           else {
             this.tinyAlert(data.message)
