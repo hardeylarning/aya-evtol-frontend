@@ -21,6 +21,7 @@ export class MedicineComponent implements OnInit {
       this.medicineService.getMedicine(id).subscribe({
         next: data => {
           if (data.status === 'success') {
+            sessionStorage.setItem('medId', id)
             this.medicine = data.data
           }
           else {
