@@ -34,7 +34,7 @@ export class EvtolService {
     return this.http.get<any>(`${this.BASE_URL}/loaded/${id}`)
   }
   
-  loadEvtol(evtolId:string, medicineId:string) {
+  loadEvtol(evtolId:any, medicineId:any) {
     return this.http.put<any>(`${this.BASE_URL}/loading/${evtolId}`, {medicineId})
   }
 }

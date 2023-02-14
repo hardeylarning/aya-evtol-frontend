@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 import { Evtol } from 'src/app/model/evtol';
 import { Medicine } from 'src/app/model/medicine';
 import { EvtolService } from 'src/app/services/evtol.service';
@@ -11,11 +12,13 @@ import Swal from 'sweetalert2';
   styleUrls: ['./evtol.component.scss']
 })
 export class EvtolComponent implements OnInit {
+  readonly loading$ = new BehaviorSubject<boolean>(false);
   evtol!: Evtol
 
   medicine!: any
 
-  constructor(private route: ActivatedRoute, 
+  constructor(private route: ActivatedRoute,
+    private router: Router,
     private evtolService: EvtolService) { }
 
   ngOnInit(): void {
@@ -44,6 +47,31 @@ export class EvtolComponent implements OnInit {
           this.tinyAlert(err)
         }
       })
+    })
+  }
+
+  loadEvtol(evtolId: string, medicineId: string) {
+    this.loading$.next(true)
+    this.evtolService.loadEvtol(evtolId, medicineId).subscribe({
+      next: data => {
+        if (data.status === 'success') {
+          this.loading$.next(false)
+          this.successNotification("Your medicine has been shipped successfully!")
+          this.router.navigateByUrl('/medicines')
+        } 
+        else {
+          this.loading$.next(false)
+          console.log("Data: ",data.message);
+          
+          this.tinyAlert("Network Error")
+        }
+      },
+      error: err => {
+        this.loading$.next(false)
+        console.log("Error: "+err);
+        
+        this.tinyAlert(err)
+      }
     })
   }
 

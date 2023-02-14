@@ -21,7 +21,7 @@
                   <td>{{ evtol.state }}</td>
                   <td>{{ evtol.batteryCapacity }}</td>
                   <td class="d-flex justify-content-between">
-                    <a [routerLink]="['/evtol', evtol._id]"><i class="bi-view-stacked text-primary"></i></a>
+                    <a *ngIf="evtol.state == 'IDLE'"  [routerLink]="['/evtol', evtol._id]"><i class="bi-view-stacked text-primary"></i></a>
                   </td>
                 </tr>
               </tbody>

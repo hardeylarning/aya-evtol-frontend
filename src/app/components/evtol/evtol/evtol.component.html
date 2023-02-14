@@ -21,7 +21,10 @@
             <p>State:   <span class="fw-bold">{{ evtol.state }}</span></p>
             <p>Battery Capacity:   <span class="fw-bold">{{ evtol.batteryCapacity }}</span></p>
             <p>Shipping Fee: <span class="badge bg-secondary">$500</span></p>
-            <a routerLink="/evtols" class="btn btn-outline-secondary">Click here to pay</a>  
+            <div class="text-center">
+                <p *ngIf="loading$ | async" class="bg-dark text-white">Loading...</p>
+                <button type="submit" *ngIf="!(loading$ | async)" (click)="loadEvtol(evtol._id, medicine._id)" class="btn btn-outline-secondary">Click here to pay</button>
+            </div>
         </div>
     </div>
 </div>
