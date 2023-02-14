@@ -32,11 +32,11 @@ export class EvtolComponent implements OnInit {
           if (data.status === 'success') {
             this.evtol = data.data
             this.medicine = JSON.parse(sessionStorage.getItem('med') || '')
-            console.log('Medicine: ', this.medicine);
+            // console.log('Medicine: ', this.medicine);
             
           } 
           else {
-            console.log("Data: ",data.status);
+            // console.log("Data: ",data.status);
             
             this.tinyAlert("Network Error")
           }
@@ -61,7 +61,7 @@ export class EvtolComponent implements OnInit {
         } 
         else {
           this.loading$.next(false)
-          console.log("Data: ",data.message);
+          // console.log("Data: ",data.message);
           
           this.tinyAlert("Network Error")
         }

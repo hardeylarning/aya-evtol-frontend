@@ -30,11 +30,11 @@ export class EvtolsComponent implements OnInit {
     this.evtolService.getEvtols().subscribe({
       next: (res) => {
         if (res.status == 'success')  {
-          console.log('Res: ', res.data);
+          // console.log('Res: ', res.data);
         this.evtols = res.data;
         }
         else {
-          console.log("Status: ", res.status);
+          // console.log("Status: ", res.status);
           this.tinyAlert(res.message)
           
         }
