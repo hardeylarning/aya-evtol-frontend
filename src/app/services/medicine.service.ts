@@ -23,8 +23,8 @@ export class MedicineService {
     return this.http.get<any>(this.BASE_URL)
   }
 
-  updateMedicine(id:string, medicine: Medicine) {
-    return this.http.put<any>(this.BASE_URL+'/'+id, medicine)
+  updateMedicine(id:string, name: string, code: string, weight:number) {
+    return this.http.put<any>(this.BASE_URL+'/'+id, {name, code, weight})
   }
 
   updateMedicineImage(id:string, imageUrl: string) {

@@ -1,1 +1,25 @@
-<p>edit-medicine works!</p>
+<div class="container">
+    <div class="row">
+        <div class="offset-md-3 col-md-4">
+            <h1 class="text-center">Update Medicine</h1>
+            <form [formGroup]="form" (ngSubmit)="onSubmit()" >
+                <div class="mb-3">
+                    <label for="name">Name</label>
+                    <input type="text" required class="form-control" formControlName="name" />
+                </div>
+                <div class="mb-3">
+                    <label for="weight">Weight</label>
+                    <input type="number" class="form-control" formControlName="weight" />
+                </div>
+                <div class="mb-3">
+                    <label for="code">Code</label>
+                    <input type="text" class="form-control" formControlName="code" />
+                </div>
+                <div class="text-center">
+                    <button *ngIf="loading$ | async" [disabled]="true" type="button" class="btn btn-success">loading...</button>
+                    <button *ngIf="!(loading$ | async)" type="submit" class="btn btn-success" [disabled]="form.invalid">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
