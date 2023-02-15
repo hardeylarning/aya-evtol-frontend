@@ -6,8 +6,8 @@ import { User } from '../model/user';
   providedIn: 'root'
 })
 export class UserService {
-  private BASE_URL_ = 'http://localhost:5000/api/v1/users'
-  private BASE_URL = 'https://evtol-api-gzz7.onrender.com/api/v1/users'
+  private BASE_URL = 'http://localhost:5000/api/v1/users'
+  private BASE_URL_ = 'https://evtol-api-gzz7.onrender.com/api/v1/users'
 
 
   constructor(private http: HttpClient) { }

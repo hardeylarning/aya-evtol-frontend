@@ -36,7 +36,7 @@ export class RegisterEvtolComponent implements OnInit {
 
   onSubmit() {
     const userId = this.userService.userLoggedIn() || ''
-    const evtol = new Evtol('', this.serialNumber, this.model, this.weight, this.batteryCapacity, this.state, [])
+    const evtol = new Evtol('', this.serialNumber, this.model, this.weight, this.batteryCapacity, 'IDLE', [])
     this.loading$.next(true)
     this.evtolService.addEvtol(evtol).subscribe({
       next: (data) =>{
@@ -48,6 +48,8 @@ export class RegisterEvtolComponent implements OnInit {
       else {
         this.loading$.next(false)
         this.tinyAlert(data.message)
+        console.log(data);
+        
       }
       // window.location.reload();
       // this.router.navigateByUrl('/tasks')
@@ -61,11 +63,8 @@ export class RegisterEvtolComponent implements OnInit {
     
   }
 
-  handleStateChange(data: any) {
-    this.state = data.target.value
-  }
   handleModelChange(data: any) {
-    this.model = data.target.value
+    this.model =  String(data.target.value)
   }
 
 }

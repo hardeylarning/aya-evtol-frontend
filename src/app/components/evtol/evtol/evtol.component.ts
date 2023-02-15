@@ -63,7 +63,7 @@ export class EvtolComponent implements OnInit {
           this.loading$.next(false)
           // console.log("Data: ",data.message);
           
-          this.tinyAlert("Network Error")
+          this.warningNotification(data.message)
         }
       },
       error: err => {
@@ -80,6 +80,10 @@ export class EvtolComponent implements OnInit {
   }
   successNotification(message: string) {
     Swal.fire('Hi', message, 'success');
+  }
+
+  warningNotification(message: string) {
+    Swal.fire('Hi', message, 'info'); 
   }
 
 }

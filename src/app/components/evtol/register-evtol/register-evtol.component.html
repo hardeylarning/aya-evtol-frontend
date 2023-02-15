@@ -6,27 +6,15 @@
                 <div class="mb-3">
                     <label for="status">Model</label>
                     <!-- ["Lightweight", "Middleweight", "Cruiseweight", "Heavyweight"] -->
-                    <select (change)="handleModelChange($event)"
+                    <select 
                     name="model"
+                    (change)="handleModelChange($event)"
                     class="form-select" id="model">
-                    <option selected [value]="'Lightweight'">Lightweight</option>
+                    <option>Model</option>
+                    <option [value]="'Lightweight'">Lightweight</option>
                     <option [value]="'Middleweight'">Middleweight</option>
                     <option [value]="'Cruiseweight'">Cruiseweight</option>
                     <option [value]="'Heavyweight'">Heavyweight</option>
-                    </select>
-                </div>
-                <div class="mb-3">
-                    <label for="status">State</label>
-                    <!-- ["IDLE", "LOADING", "LOADED","DELIVERING", "DELIVERED", "RETURNING"] -->
-                    <select (change)="handleStateChange($event)"
-                    name="state"
-                    class="form-select" id="state">
-                    <option selected [value]="'IDLE'">IDLE</option>
-                    <option [value]="'LOADING'">LOADING</option>
-                    <option [value]="'LOADED'">LOADED</option>
-                    <option [value]="'DELIVERING'">DELIVERING</option>
-                    <option [value]="'DELIVERED'">DELIVERED</option>
-                    <option [value]="'RETURNING'">RETURNING</option>
                     </select>
                 </div>
                 <div class="mb-3">
