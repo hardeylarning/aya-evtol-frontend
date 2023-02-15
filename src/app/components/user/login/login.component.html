@@ -31,10 +31,6 @@
                 <button *ngIf="!(loading$ | async)" [disabled]="loginForm.invalid" (click)="login()" type="submit" class="btn btn-primary">Sign in</button>
                 <a routerLink="/register" class="btn btn-success ms-2">Register</a>
               </div>
-    
-              <div class="text-center mt-2">
-                <a routerLink="/reset-password" class="btn btn-info">forgot password?</a>
-              </div>
           
               
             </form>
