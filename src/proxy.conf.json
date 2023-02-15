@@ -1,6 +1,6 @@
 {
     "/api": {
-        "target": "http://localhost:5000/api",
+        "target": "https://evtol-api-gzz7.onrender.com",
         "secure": false
     }
 }

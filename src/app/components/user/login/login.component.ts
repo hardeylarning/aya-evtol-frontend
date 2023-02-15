@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['/medicines'])
         }
         else {
-          // console.log('Data:', data);
+          console.log('Data:', data);
           this.loading$.next(false)
           this.tinyAlert(data.message)
         }

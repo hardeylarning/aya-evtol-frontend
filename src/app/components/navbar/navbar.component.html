@@ -6,7 +6,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mb-2 ms-auto mb-lg-0">
-          <li class="nav-item dropdown">
+          <li *ngIf="isLoggedIn()" class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" routerLink="/medicines" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Medicines
             </a>
@@ -14,7 +14,7 @@
               <li><a class="dropdown-item" routerLink="/add-medicine">Add New Medicine</a></li>
             </ul>
           </li>
-          <li class="nav-item dropdown">
+          <li *ngIf="isLoggedIn()" class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" routerLink="/evtols" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Evtols
             </a>
