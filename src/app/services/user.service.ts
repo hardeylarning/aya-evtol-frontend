@@ -1,13 +1,14 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 import { User } from '../model/user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  private BASE_URL_ = 'http://localhost:5000/api/v1/users'
-  private BASE_URL = 'https://evtol-api-gzz7.onrender.com/api/v1/users'
+  private BASE_URL = environment.USER_BASE_URL
+  private BASE_URL_ = 'https://evtol-api-gzz7.onrender.com/api/v1/users'
 
 
   constructor(private http: HttpClient) { }

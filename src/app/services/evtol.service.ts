@@ -1,13 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 import { Evtol } from '../model/evtol';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EvtolService {
-  private BASE_URL_ = 'http://localhost:5000/api/v1/evtols'
-  private BASE_URL = 'https://evtol-api-gzz7.onrender.com/api/v1/evtols'
+  private BASE_URL = environment.EVTOL_BASE_URL
+  private BASE_URL_ = 'https://evtol-api-gzz7.onrender.com/api/v1/evtols'
 
   constructor(private http: HttpClient) { }
 
