@@ -55,6 +55,7 @@ export class UserService {
     localStorage.removeItem('userId')
     localStorage.removeItem('userName')
     localStorage.removeItem('role')
+    localStorage.removeItem('email')
     
   }
 
@@ -67,6 +68,10 @@ export class UserService {
   }
   getRole() {
     return localStorage.getItem('role') || ''
+  }
+
+  getEmail() {
+    return localStorage.getItem('email') || ''
   }
 
   userLoggedIn() {

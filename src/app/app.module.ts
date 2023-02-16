@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Angular4PaystackModule } from 'angular4-paystack';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -40,7 +41,8 @@ import { MedicineComponent } from './components/medicine/medicine/medicine.compo
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    Angular4PaystackModule.forRoot('pk_test_278888d06505d44ab6d8dcd1ddaa687e086be99d')
   ],
   providers: [
     {

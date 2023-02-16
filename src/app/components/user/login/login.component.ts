@@ -41,6 +41,7 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('userName', data.data.fullname)
           localStorage.setItem('token', data.data.token)
           localStorage.setItem('role', data.data.role)
+          localStorage.setItem('email', this.email)
           this.router.navigate(['/medicines'])
         }
         else {
