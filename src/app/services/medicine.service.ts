@@ -12,8 +12,16 @@ export class MedicineService {
 
   constructor(private http: HttpClient) { }
 
-  addMedicine(medicine: Medicine) {
-    return this.http.post<any>(this.BASE_URL, medicine)
+  addMedicine(medicine: Medicine, imageUrl: any) {
+    const formData = new FormData();
+
+    formData.append('name', medicine.name);
+    formData.append('code', medicine.code);
+    formData.append('weight', medicine.weight.toString());
+    formData.append('userId', medicine.userId);
+    formData.append('imageUrl', imageUrl);
+
+    return this.http.post<any>(this.BASE_URL, formData)
   }
 
   getMedicine(id: string) {

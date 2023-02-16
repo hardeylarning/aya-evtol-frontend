@@ -31,12 +31,17 @@ export class AddMedicineComponent implements OnInit {
    weight: number = 0;
    name: string = ''
    code: any;
+   file!: File
+
+   onChange(event: any) {
+    this.file = event.target.files[0];
+}
 
   onSubmit() {
     const userId = this.userService.userLoggedIn() || ''
     const medicine = new Medicine('', this.name, userId, this.weight, this.code, '')
     this.loading$.next(true)
-    this.medicineService.addMedicine(medicine).subscribe({
+    this.medicineService.addMedicine(medicine, this.file).subscribe({
       next: (data) =>{
       if(data.status === 'success'){
         this.loading$.next(false)
