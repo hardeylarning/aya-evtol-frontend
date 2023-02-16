@@ -97,7 +97,7 @@ export class EvtolComponent implements OnInit {
       return 300;
     }
     else if (this.evtol.weight <= 400) {
-      return 200;
+      return 400;
     }
     else {
       return 500;
